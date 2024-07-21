@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}ENTER{% endblock %}
+
+{% block header %}
+<div class="notice tb-center">
+    確認してから退出を押してください
+</div>
+{% endblock %}
+
+{% block error %}
+{% if error != '' %}
+    <div class="error">{{ error }}</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="text-start">
+    <p><a href="{% url 'time_logging:exit' %}">←戻る</a></p>
+</div>
+
+<div style="height: 24px;"></div>
+
+<div class="wrap">
+    <table>
+        <tr>
+            <th colspan="2"><label for="">入室情報</label></th>
+        </tr>
+    
+        {% if data.student_number is None %}
+            <tr>
+                <th>氏名</th>
+                <th>{{ data.name }}</th>
+            </tr>
+        {% else %}
+            <tr>
+                <th>学籍番号</th>
+                <th>{{ data.student_number }}</th>
+            </tr>
+        {% endif %}
+    
+        <tr>
+            <th>学部</th>
+            <th>{{ data.faculty }}</th>
+        </tr>
+    
+        <tr>
+            <th>所属</th>
+            <th>{{ data.attribute }}</th>
+        </tr>
+    
+        <tr>
+            <th>入室時間</th>
+            <th>{{ data.enter | date:"H時i分" }}</th>
+        </tr>
+    </table>
+
+    <form  method="post">
+        {% csrf_token %}
+        <input type="hidden" value="{{ data.id }}" name="id">
+        <div style="height: 32px;"></div>
+        <button type="submit" onclick="return confirm('退出しますか？')"  class="b-exit" >
+            退出する
+        </button>
+    </form>
+</div>
+
+
+{% endblock %}

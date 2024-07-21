@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="{% static 'img/icon.png' %}" sizes="any">
+    <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Brainstor Meeting Web Application">
+
+    <title>{% block title %}{% endblock %} - Time Logging</title>
+    <!-- ページタイトルをブロックとして定義し、各テンプレートでカスタマイズ可能にする -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    {% block header %}{% endblock %}
+    
+    {% block hamburger %}{% endblock %}
+
+    <main>
+        {% block error %}{% endblock %}
+        {% block content %}
+        <p>※コンテンツがありません。</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+
+        <div>
+            <p class="p-heading">Time Logging</p>
+        </div>
+
+        <div>
+            <nav>
+
+                <p>
+                    <a href="{% url 'time_logging:use' %}">
+                        使い方
+                    </a>
+                </p>
+                <p>|</p>
+                <p>
+                    <a href="{% url 'management:index' %}">
+                        管理者画面
+                    </a>
+                </p>
+
+            </nav>
+        </div>
+
+        <div>
+            <img src="{% static 'img/icon.png' %}" alt="現在の管理者">
+        </div>
+
+        <div style="height: 12px;"></div>
+
+        <p>Made by KS-PF| 2023~2024</p>
+        <p>All rights reserved</p>
+
+        <div style="height: 32px;"></div>
+
+    </footer>
+
+</body>
+
+</html>

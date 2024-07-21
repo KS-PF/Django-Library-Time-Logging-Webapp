@@ -1,0 +1,177 @@
+{% extends 'base_manager.html' %}
+{% load static %}
+{% block title %}{{ user.last_name }} {{ user.first_name }}{% endblock %}
+
+
+{% block error %}
+{% if error != '' %}
+<div style="height: 32px;"></div>
+<div class="error">{{ error }}</div>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<div style="height: 12px;"></div>
+
+{% if data == None %}
+<div class="wrap centered-box">
+    <h1>{{ month }}月の利用分析</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="check" id="check" value="分析する">
+        <div style="height: 32px;"></div>
+        <button type="submit">{{ month }}月のデータを分析する</button>
+    </form>
+</div>
+{% else %}
+<div class="chart-wrap">
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+
+<div class="wrap centered-box">
+    <h1>{{ month }}月の利用分析</h1>
+
+    <div style="height:24px;"></div>
+
+    <table>
+        <tr>
+            <th colspan="2"><label for="">利用時間</label></th>
+        </tr>
+
+        <tr>
+            <th>平均</th>
+            <th>{{data.average_duration}}分</th>
+        </tr>
+
+        <tr>
+            <th>合計</th>
+            <th>{{data.total_duration}}分</th>
+        </tr>
+
+        <tr>
+            <th>最小</th>
+            <th>{{data.min_duration}}分</th>
+        </tr>
+
+        <tr>
+            <th>最大</th>
+            <th>{{data.max_duration}}分</th>
+        </tr>
+
+        <tr>
+            <th>中央値</th>
+            <th>{{data.median_duration}}分</th>
+        </tr>
+
+    </table>
+
+    <div style="height:28px;"></div>
+
+    <table>
+        <tr>
+            <th colspan="2"><label for="">利用人数</label></th>
+        </tr>
+
+        <tr>
+            <th>合計</th>
+            <th>{{data.total_count}}人</th>
+        </tr>
+
+        <tr>
+            <th>生徒</th>
+            <th>{{data.student_count}}人</th>
+        </tr>
+
+        <tr>
+            <th>教員・職員等</th>
+            <th>{{data.other_count}}人</th>
+        </tr>
+
+        <tr>
+            <th>情報学部</th>
+            <th>{{data.info_faculty_count}}人</th>
+        </tr>
+
+        <tr>
+            <th>その他学部</th>
+            <th>{{data.other_faculty_count}}人</th>
+        </tr>
+
+    </table>
+
+    <div style="height:28px;"></div>
+
+    <table>
+        <tr>
+            <th>曜日</th>
+            <th>人数</th>
+            <th>合計</th>
+            <th>平均</th>
+        </tr>
+        {% for week, data in data.weekday_data.items %}
+            <tr>
+                <th>{{ week }}</th>
+                <th>{{ data.count }}人</th>
+                <th>{{ data.total_duration }}分</th>
+                <th>{{ data.average_duration }}分</th>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div style="height: 32px;"></div>
+
+    <h1>曜日利用割合</h1>
+</div>
+    <div class="barchart">
+        <table>
+            <tbody>
+                {% for p, data in data.graph_data.items %}
+                <tr>
+                    <td class="barchart-td-t">{{ p }}</td>
+                    {% for i in data %}
+                        {% if i == 1 %}
+                        <td><div class="barchart-blue"></div></td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="barchart-td-t">(%)</td>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                </tr>
+            </tfoot>
+        </table> 
+    </div>
+
+</div>
+
+<div style="height: 32px;"></div>
+
+<div class="wrap centered-box">
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="check" id="check" value="分析する">
+        <div style="height: 32px;"></div>
+        <button type="submit">最新のデータで分析する</button>
+    </form>
+</div>
+{% endif %}
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+
+
+
+<div style="height: 48px;"></div>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

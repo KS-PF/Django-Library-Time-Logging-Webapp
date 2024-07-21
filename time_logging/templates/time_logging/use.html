@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}使い方{% endblock %}
+
+{% block content %}
+<div class="text-start">
+    <p><a href="{% url 'time_logging:index' %}">←HOMEに戻る</a></p>
+</div>
+
+<div class="wrap centered-box" >
+    <h1>使い方</h1>
+    <h3 class="color-grey">入室する場合</h3>
+    <p>ホーム画面から”入室する”と書かれた
+        ボタンを押して、必要な情報を入力したのちに、”確定する”と書かれた
+        ボタンを押してください。</p>
+    <p>学生の場合は、学生番号か氏名を入力してください。</p>
+    <p>学生の場合は、学生番号か氏名を入力してください。</p>
+    <div style="height: 28px;"></div>
+
+    <h3 class="color-grey">退室する場合</h3>
+    <p>ホーム画面から”退出ボタン”を押して、自分の情報の行を選択し、退出すると書かれた
+        ボタンを押してください。</p>
+    <p>この際、学生番号と氏名を対象に、テーブル上のフォームから検索を行うことができます。</p>
+    <div style="height: 28px;"></div>
+
+    <h3 class="color-grey">あとから情報を入力する場合</h3>
+    <p>ホーム画面から”追録ボタン”を押して、必要な情報を入力したのちに、”確定する”と書かれた
+        ボタンを押してください。</p>
+    <div style="height: 28px;"></div>
+
+    <h3 class="color-grey">その他動作</h3>
+    <p>データを削除したい、などの上記以外の操作が必要な場合は管理者に連絡してください。</p>
+
+    <div style="height: 48px;"></div>
+</div>
+
+{% endblock %} 

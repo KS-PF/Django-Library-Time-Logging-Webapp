@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}ENTER{% endblock %}
+
+{% block header %}
+{% if msg != '' %}
+<div class="notice tb-center">
+    {{ msg }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block error %}
+{% if error != '' %}
+    <div class="error">{{ error }}</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% if back != '' %}
+<div class="text-start">
+    <p><a href="{% url back %}">←HOMEに戻る</a></p>
+</div>
+{% endif %}
+
+<div class="wrap centered-box">
+
+    <form action="{% url urlName %}" method="post">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <div style="height: 32px;"></div>
+        <button type="submit" onclick="return confirm('確定しますか？')">確定する</button>
+    </form>
+
+    <div style="height: 48px;"></div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="height:32px;"></div>
+<div class="text-start">
+    <p><a href="{% url 'time_logging:index' %}">←Back</a></p>
+</div>
+<div class="wrap centered-box">
+    <h2>ログイン</h2>
+
+    <form  method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div style="height: 32px;"></div>
+        <button type="submit">ログイン</button>
+    </form>
+
+    <div style="height: 48px;"></div>
+
+</div>
+{% endblock %}

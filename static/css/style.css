@@ -1,0 +1,875 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+    font-family: serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(84, 84, 84);
+}
+
+body {
+    line-height: 1.7;
+    color: rgb(84, 84, 84);
+    margin: 0;
+    padding: 0;
+
+}
+
+.color-grey {
+    color: rgb(84, 84, 84);
+}
+
+.color-blue {
+    color: rgb(62, 130, 255);
+}
+
+label {
+    font-size: 24px;
+}
+
+p {
+    padding: 0 4%;
+    margin: 4px 0;
+    font-size: 20px;
+}
+
+.p-red {
+    color: rgb(255, 80, 80);
+    font-size: 14px;
+}
+
+.p-blue {
+    color: rgb(62, 130, 255);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.p-small {
+    font-size: 14px;
+}
+
+.p-post {
+    font-size: 24px;
+}
+
+.p-nowrap {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.p-heading {
+    font-size: 24px;
+}
+
+
+main {
+    padding: 2%;
+    background-color: white;
+    min-height: 600px;
+    height: 100vh;
+    overflow: auto;
+    color: rgb(84, 84, 84);
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    font-size: 24px;
+    height: fit-content;
+    font-weight: bold;
+    background-color: white;
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    padding: 4px 0;
+    width: 100%;
+    align-items: center;
+    
+
+    border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+.header-l {
+    width: 75%;
+    text-align: center;
+    background-color: white;
+}
+
+.header-r {
+    width: 10%;
+    background-color: white;
+    display: flex;
+    justify-content: end;
+}
+
+header img {
+    width: 60px;
+    background-color: white;
+}
+header input {
+    width: 60px;
+    background-color: white;
+}
+
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: rgb(62, 130, 255);
+    overflow: hidden;
+    padding: 2%;
+    height: fit-content;
+    margin: 0;
+    font-size: 24px;
+}
+
+footer div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+footer div img {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+
+.wrap {
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(84, 84, 84);
+}
+
+h1,
+h2,
+h3 {
+    font-family: serif;
+    color: rgb(62, 130, 255);
+    margin: 24px 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+a {
+    color: rgb(62, 130, 255);
+}
+
+
+hr {
+    border: none;
+    border-top: 1px solid rgb(133, 133, 133);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(62, 130, 255);
+    padding: 1%;
+    overflow: auto;
+    white-space: nowrap;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+}
+
+nav a {
+    color: white;
+}
+
+nav a:hover {
+    background-color: white;
+    color: rgb(62, 130, 255);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+
+.account-updata {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    font-size: 24px;
+    width: 100%;
+    align-items: center;
+
+}
+
+.account-updata-alart {
+    background-color: rgb(213, 213, 213);
+    width: 100%;
+    height: fit-content;
+    overflow: auto;
+    border-radius: 8px;
+    margin: 32px 0;
+}
+
+.sc-img {
+    width: 100%;
+    border-radius: 4px;
+    border: solid 2px rgb(213, 213, 213);
+}
+
+.centered-box {
+    width: 50%;
+    height: fit-content;
+    padding: 4px;
+    margin-bottom: 40px;
+    text-align: center;
+    height: fit-content;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.text-start a {
+    text-align: start;
+    text-decoration: underline;
+    color: rgb(107, 107, 107);
+}
+.text-start a:hover {
+    color: rgb(81, 81, 81);
+    font-weight: bold;
+}
+
+.ul-center {
+    width: fit-content;
+    margin: auto;
+    color: rgb(107, 107, 107);
+}
+
+.ul-center a {
+    color: rgb(107, 107, 107);
+}
+
+button {
+    text-align: center;
+    color: white;
+    background-color: rgb(62, 130, 255);
+    font-size: 24px;
+    width: 60%;
+    padding: 8px;
+    border: 2px solid rgb(62, 130, 255);
+    border-radius: 8px;
+    display: block;
+    margin: 16px auto;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(43, 94, 187);
+    border: 2px solid rgb(43, 94, 187);
+}
+
+.button-red {
+    text-align: center;
+    color: white;
+    background-color: rgb(255, 80, 80);
+    padding: 2%;
+    border: 2px solid rgb(255, 80, 80);
+    border-radius: 8px;
+    width: fit-content;
+    /* display: block; */
+    font-size: 22px;
+}
+
+.button-red:hover {
+    color: white;
+    background-color: rgb(164, 40, 40);
+    border: 2px solid rgb(164, 40, 40);
+}
+
+
+.error {
+    margin: 1em 0;
+    padding: 1em 2em;
+    background: rgb(255, 234, 234);
+    border: 2px double rgb(255, 80, 80);
+    border-radius: 4px;
+    text-align: center;
+    color: rgb(255, 80, 80);
+    font-weight: bold;
+    width: fit-content;
+    font-size: 18px;
+    margin: auto;
+    height: fit-content;
+}
+ul.errorlist {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
+}
+.errorlist li{
+    text-align: left;
+    color: rgb(255, 80, 80);
+    font-size: 16px;
+    list-style:none;
+}
+
+
+textarea {
+    width: 96%;
+    height: 250px;
+    resize: none;
+    padding: 4px;
+    font-family: serif;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(84, 84, 84);
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    border: 2px solid rgb(209, 209, 209);
+    margin-bottom: 8px 0;
+}
+
+textarea:focus {
+    border: 2px solid rgb(62, 130, 255);
+    outline: 0;
+}
+
+input[type=submit] {
+    min-width: min-content;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(62, 130, 255);
+    border: 2px solid rgb(62, 130, 255);
+    border-radius: 8px;
+    padding: 1%;
+}
+
+input[type=submit]:hover {
+    color: white;
+    background-color: rgb(43, 94, 187);
+    border: 2px solid rgb(43, 94, 187);
+}
+
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid rgb(209, 209, 209);
+    box-sizing: border-box;
+    margin-bottom: 28px;
+}
+
+input[type="datetime-local"],
+input[type="time"] {
+    width: fit-content;
+    padding: 10px 15px;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid rgb(209, 209, 209);
+    box-sizing: border-box;
+    margin-bottom: 28px;
+}
+
+input[type="email"]:focus,
+input[type="datetime-local"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border: 2px solid rgb(62, 130, 255);
+    outline: 0;
+}
+
+input[type="image"]{
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: white;
+    font-size: 20px;
+    min-width: 480px;
+    overflow: auto;
+    border-radius: 2px;
+}
+thead {
+    padding: 10px;
+    border: solid 1px rgb(104, 104, 104);
+    background-color: rgb(62, 130, 255);
+    color: white;
+}
+th {
+    padding: 8px;
+    border: solid 1px rgb(104, 104, 104);
+}
+.b-exit {
+    text-align: center;
+    color: white;
+    background-color: rgb(255, 80, 80);
+    padding: 2%;
+    border: 2px solid rgb(255, 80, 80);
+    border-radius: 8px;
+    width: fit-content;
+    display: block;
+    /* margin: 16px auto; */
+    font-size: 22px;
+}
+.b-exit:hover{
+    background-color: rgb(164, 40, 40);
+    border: 2px solid rgb(164, 40, 40);
+    color: white;
+}
+
+
+.post {
+    width: fit-content;
+    max-width: 90%;
+    height: min-content;
+}
+
+.post-main {
+    height: fit-content;
+    background-color: white;
+    border-radius: 2px;
+    text-align: start;
+    padding: 2%;
+    border: 2px solid rgb(62, 130, 255);
+    border-radius: 0px 30px 30px 30px;
+    margin-bottom: 50px;
+    width: 96%;
+    overflow-wrap: break-word;
+}
+
+.post-title {
+    width: fit-content;
+    margin-top: 50px;
+}
+
+.post-bottom {
+    display: flex;
+    width: 96%;
+    margin: 0 auto;
+    /* overflow: auto; */
+    justify-content: space-around;
+    white-space: nowrap;
+    min-width: 120px;
+    max-width: 400px;
+}
+
+.post-bottom p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+
+.post-btn {
+    position: fixed;
+    bottom: 4%;
+    right: 2%;
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 60px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.24);
+    color: white;
+    background-color: rgb(255, 80, 80);
+    border: 2px solid rgb(255, 80, 80);
+}
+
+.post-btn:hover {
+    color: rgb(255, 80, 80);
+    background-color: white;
+    border: 2px solid rgb(255, 80, 80);
+}
+
+.post-btn p {
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.equal-intervals {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tb-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.box {
+    width: 45%;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px rgb(151, 151, 151);
+    height: fit-content;
+    overflow: auto;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(152, 152, 152);
+}
+
+.box:hover {
+    box-shadow: 4px 4px 4px 4px rgb(151, 151, 151);
+
+}
+
+.box a {
+    text-decoration: none;
+    color: white;
+}
+
+.entry {
+    background-color: rgb(255, 152, 152);
+    height: 300px;
+}
+.entry:hover{
+    background-color: rgb(212, 124, 124);
+}
+
+.exit {
+    background-color: rgb(119, 166, 255);
+    height: 300px;
+}
+.exit:hover{
+    background-color:rgb(93, 133, 205);
+}
+
+.how_to_use {
+    background-color: rgb(255, 198, 91);
+    height: 200px;
+}
+.how_to_use:hover{
+    background-color: rgb(213, 166, 77);
+}
+
+.other {
+    background-color: rgb(152, 152, 152);
+    height: 200px;
+}
+.other:hover{
+    background-color: rgb(113, 113, 113);
+}
+
+.notice {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    background-color: rgb(62, 130, 255);
+    margin: 0;
+    height: fit-content;
+    overflow: auto;
+    padding: 1%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+
+.input-radio {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    background-color: white;
+    padding: 4px;
+    border-radius: 8px;
+    border: 2px solid rgb(209, 209, 209);
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0 auto;
+    height: fit-content;
+    margin-bottom: 16px;
+}
+
+.search-form-box{
+    display: flex;
+    height: 54px;
+    overflow: hidden;
+}
+.search-form{
+    width: 50%;
+    min-width: 150px;
+    max-width: 400px;
+}
+
+.sort-box{
+    display: flex;
+    height: fit-content;
+    justify-content: start;
+    width: 90%;
+}
+.sort-b{
+    width: fit-content;
+    color: white;
+    background-color: rgb(150, 150, 150);
+    border: 2px solid rgb(150, 150, 150);
+}
+.sort-b:hover{
+    color: white;
+    background-color: rgb(81, 81, 81);
+    border: 2px solid rgb(81, 81, 81);
+}
+
+
+
+/* ハンバーガーメニューアセット
+ーーーーーーーーーーーーーーー */
+.hamburger-button {
+    position: fixed;   
+    width: 48px;
+    height: 48px;
+    right: 10px;
+    top: 10px;
+
+    z-index: 3;
+}
+.hamburger-line {
+    position: absolute;
+    width: 40px;
+    margin: 0px 2px;
+    height: 3px;
+    right: 0;
+    background-color: rgb(111, 111, 111);
+    transition: all 0.5s;
+}
+.hamburger-line-t {
+    top: 1px;
+}
+.hamburger-line-m {
+    top: 16px;
+}
+.hamburger-line-b {
+    top: 32px;
+}
+.hamburger-content {
+    position: fixed;
+    right: -100%; 
+    top: 0;
+    width: 80%; 
+    max-width: 500px;
+    height: 100vh;
+    background-color: white;
+    transition: all 0.5s;
+    overflow: auto; 
+    text-align: center;
+    padding: 0 2%;
+
+    z-index: 2;
+}
+.hamburger-out {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+
+    z-index: 1;
+}
+
+/*クリックされたら*/
+.active .hamburger-line-t {
+    opacity: 0;
+}
+.active .hamburger-line-b {
+    opacity: 0;
+}
+
+.active .hamburger-content {
+    right: 0;
+}
+
+.active .hamburger-out {
+    opacity: 0.5;
+    visibility: visible;
+}
+/* ハンバーガーメニューアセット終わり
+ーーーーーーーーーーーーーーー */
+
+
+@media (max-width:1000px) {
+    .centered-box {
+        width: 80%;
+    }
+}
+
+@media (max-width:700px) {
+    label {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .p-heading {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 20px;
+        width: 70%;
+    }
+
+
+    footer {
+        font-size: 20px;
+    }
+
+    .menu {
+        font-size: 20px;
+    }
+
+    .centered-box {
+        width: 80%;
+    }
+
+    input[type="password"],
+    input[type="number"],
+    input[type="text"] {
+        font-size: 18px;
+    }
+    .search-form-box{
+        height: 45px;
+    }
+
+    .header-r img {
+        width: 40px;
+    }
+    .header-r input {
+        width: 40px;
+    }
+
+
+    .box {
+        width: 45%;
+        margin-bottom: 30px;
+        font-size: 40px;
+    }
+
+    .entry {
+        height: 250px;
+    }
+
+    .exit {
+        height: 250px;
+    }
+
+    .how_to_use {
+        height: 150px;
+    }
+
+    .other {
+        height: 150px;
+    }
+
+    .notice {
+        font-size: 18px;
+    }
+
+    .input-radio {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:550px) {
+    .index-grid {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:440px) {
+    input[type="image"]{
+        height: 40px;
+        width: 40px;
+    }
+
+    header {
+        font-size: 20px;
+    }
+
+    button {
+        width: 80%;
+    }
+
+    .centered-box {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .header-l {
+        width: 70%;
+    }
+
+    .header-r {
+        width: 15%;
+    }
+
+    .header-r img {
+        width: 40px;
+    }
+
+    .equal-intervals {
+        flex-direction: column;
+    }
+
+
+    .box {
+        width: 99%;
+        margin-bottom: 30px;
+    }
+
+    .entry {
+        height: 150px;
+    }
+
+    .exit {
+        height: 150px;
+    }
+
+    .how_to_use {
+        height: 100px;
+    }
+
+    .other {
+        height: 100px;
+    }
+}

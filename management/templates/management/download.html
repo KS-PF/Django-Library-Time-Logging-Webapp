@@ -1,0 +1,53 @@
+{% extends 'base_manager.html' %}
+{% load static %}
+{% block title %}{{ user.last_name }} {{ user.first_name }}{% endblock %}
+
+{% block header %}
+<header>
+    <label class="header-l">こんにちは、{{ user.last_name }} {{ user.first_name }} さん</label>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <input type="image"  onclick="return confirm('ログアウトしますか？')"
+        id="image" alt="logout" src="{% static 'img/logout.png' %}" 
+        class="logout-img">
+    </form>
+
+    <div style="width: 48px;"></div>
+
+</header>
+{% endblock %}
+
+
+{% block error %}
+{% if error != '' %}
+<div style="height: 36px;"></div>
+<div class="error">{{ error }}</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div style="height: 12px;"></div>
+
+<div class="wrap centered-box">
+    <h1>ダウンロード</h1>
+    <p>
+        入退室の記録をCSVファイルでダウンロードします。
+    </p>
+    <p class="p-red">CSVファイルはエクセルやスプレッドシートで開くことができます。</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <div style="height: 32px;"></div>
+        <button type="submit">ダウンロードする</button>
+    </form>
+
+    <div style="height: 48px;"></div>
+
+</div>
+
+<div style="height: 48px;"></div>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base_manager.html' %}
+{% load static %}
+{% block title %}{{ user.last_name }} {{ user.first_name }}{% endblock %}
+
+{% block header %}
+<header>
+    <label class="header-l">こんにちは、{{ user.last_name }} {{ user.first_name }} さん</label>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <input type="image"  onclick="return confirm('ログアウトしますか？')"
+        id="image" alt="logout" src="{% static 'img/logout.png' %}" 
+        class="logout-img">
+    </form>
+
+    <div style="width: 48px;"></div>
+
+</header>
+{% endblock %}
+
+
+{% block error %}
+{% if error != '' %}
+<div class="error">{{ error }}</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div style="height: 48px;"></div>
+
+<div class="over-scroll-center">
+    <form method="get">
+
+        <div class="sort-box">
+            
+            {% if request.GET.exit == 'al' %}
+            <div>
+                <button type="submit" value="yet" name="exit" id="exit" class="sort-b">
+                    退出済
+                </button>
+            </div>
+            {% else %}
+            <div>
+                <button type="submit" value="al" name="exit" id="exit" class="sort-b">
+                    未退出
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>年</th>
+                <th>月</th>
+                <th>日</th>
+                <th>曜日</th>
+                <th>学部</th>
+                <th>属性</th>
+                <th>学籍番号</th>
+                <th>氏名</th>
+                <th>入室時間</th>
+                <th>退出時間</th>
+                <th>利用時間(分)</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+        {% for i in data %}
+        </tr>
+            <th>{{ i.id }}</th>
+            <th>{{ i.year }}</th>
+            <th>{{ i.month }}</th>
+            <th>{{ i.day }}</th>
+            <th>{{ i.weekday }}</th>
+            <th>{{ i.faculty }}</th>
+            <th>{{ i.attribute }}</th>
+            <th>
+                {% if i.student_number is not None %}
+                {{ i.student_number }}
+                {% endif %}
+            </th>
+            <th>
+                {% if i.name is not None %}
+                {{ i.name }}
+                {% endif %}
+            </th>
+            <th>{{ i.enter }}</th>
+            <th>
+                {% if i.exit is  None %}
+                未退出
+                {% else %}
+                {{ i.exit }}
+                {% endif %}
+            </th>
+            <th>
+                {% if i.is_exit == False %}
+                <form action="{% url 'management:update' i.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="number" name="duration" id="duration" placeholder="例：1" min="1" max="600" />
+                    <button class="sort-b" type="submit" onclick="return confirm('時間を設定しますか？')">時間設定</button>
+                </form>
+                {% else %}
+                {{ i.duration }}
+                {% endif %}
+            </th>
+            <th>
+                <form action="{% url 'management:delete' i.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="b-exit" type="submit" onclick="return confirm('データを削除しますか？この操作は取り消せません。')">
+                        削除する
+                    </button>
+                </form>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div style="height: 48px;"></div>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}

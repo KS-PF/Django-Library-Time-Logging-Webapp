@@ -1,0 +1,76 @@
+{% extends 'base_manager.html' %}
+{% load static %}
+{% block title %}{{ user.last_name }} {{ user.first_name }}{% endblock %}
+
+{% block header %}
+<header>
+    <label class="header-l">こんにちは、{{ user.last_name }} {{ user.first_name }} さん</label>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <input type="image"  onclick="return confirm('ログアウトしますか？')"
+        id="image" alt="logout" src="{% static 'img/logout.png' %}" 
+        class="logout-img">
+    </form>
+
+    <div style="width: 48px;"></div>
+
+</header>
+{% endblock %}
+
+
+{% block content %}
+<div style="height: 12px;"></div>
+<div class="wrap centered-box">
+    <h1>機能一覧</h1>
+
+    <a href="{% url 'management:list' %}">
+        <div class="manage-index">
+            <div style="width: 20px;"></div>
+            <img src="{% static 'img/list.png' %}" alt="">
+            <div style="width: 20px;"></div>
+            <p>一覧表示・編集</p>
+        </div>
+    </a>
+
+    <div style="height: 40px;"></div>
+
+
+    <a href="{% url 'management:analysis' %}">
+        <div class="manage-index">
+            <div style="width: 20px;"></div>
+            <img src="{% static 'img/barchart.png' %}" alt="">
+            <div style="width: 20px;"></div>
+            <p>データ分析</p>
+        </div>
+    </a>
+
+    <div style="height: 40px;"></div>
+
+    <a href="{% url 'management:download' %}">
+        <div class="manage-index">
+            <div style="width: 20px;"></div>
+            <img src="{% static 'img/download.png' %}" alt="">
+            <div style="width: 20px;"></div>
+            <p>データダウンロード</p>
+        </div>
+    </a>
+
+    <div style="height: 40px;"></div>
+
+    <a href="{% url 'accounts:mypage' %}">
+        <div class="manage-index">
+            <div style="width: 20px;"></div>
+            <img src="{% static 'img/user.png' %}" alt="">
+            <div style="width: 20px;"></div>
+            <p>ユーザー画面</p>
+        </div>
+    </a>
+
+    <div style="height: 30px;"></div>
+</div>
+
+<div style="height: 48px;"></div>
+<script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}

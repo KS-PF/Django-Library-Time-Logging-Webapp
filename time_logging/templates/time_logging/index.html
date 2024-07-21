@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}HOME{% endblock %}
+
+{% block header %}
+<div class="notice tb-center">
+    以下のボタンを押して入室/退室時間を記録してください
+</div>
+{% endblock %}
+
+{% block content %}
+<div style="height: 32px;"></div>
+<div class="equal-intervals">
+    <a href="{% url 'time_logging:enter' %}" class="box entry tb-center">
+        入室する
+    </a>
+
+    <a href="{% url 'time_logging:exit' %}" class="box exit tb-center">
+        退室する
+    </a>
+</div>
+
+<div class="equal-intervals">
+    <a href="{% url 'time_logging:use' %}" class="box how_to_use tb-center">
+        使い方
+    </a>
+
+    <a href="{% url 'time_logging:add' %}" class="box other tb-center">
+        追録
+    </a>
+</div>
+{% endblock %} 

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}EXIT{% endblock %}
+
+{% block header %}
+<div class="notice tb-center">
+    自分の列の退出ボタンを押して退室してください
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="text-start">
+    <p><a class="back-page" href="{% url 'time_logging:index' %}">←HOMEに戻る</a></p>
+</div>
+
+<div style="height: 32px;"></div>
+
+
+<form method="get">
+    <div class="search-form-box">
+        <span class="search-form">
+            <input id="text" value="{{ request.GET.text }}" 
+            name="text" type="text" placeholder="学籍番号・氏名">
+        </span>
+        <div style="width: 8px;"></div>
+        <input type="submit" value="検索する">
+    </div>
+    <div class="sort-box">
+        {% if request.GET.sort == '-id' %}
+        <div>
+            <button type="submit" value="id" 
+            name="sort" id="sort" class="sort-b">
+                ↑
+            </button>
+        </div>
+        {% else %}
+        <div>
+            <button type="submit" value="-id" 
+            name="sort" id="sort" class="sort-b">
+            ↓
+            </button>
+        </div>
+        {% endif %}
+    </div>
+</form>
+
+
+<div style="height: 8px;"></div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>学部</th>
+            <th>属性</th>
+            <th>学籍番号</th>
+            <th>氏名</th>
+            <th>入室時間</th>
+            <th>退出時間</th>
+        </tr>
+    </thead>
+    <div class="exit-list">
+        <tr style="color:rgb(62, 130, 255);">
+            <th>(例)0</th>
+            <th>(例)情報</th>
+            <th>(例)学生</th>
+            <th>(例)2024</th>
+            <th>(例)開志</th>
+            <th>(例)09時00分</th>
+            <th>(例)19時00分</th>
+        </tr>
+
+        {% for data in object_list %}
+        <tr>
+            <th>{{ data.id }}</th>
+            <th>{{ data.faculty }}</th>
+            <th>{{ data.attribute }}</th>
+            <th>
+                {% if data.student_number is not None %}
+                {{ data.student_number }}
+                {% endif %}
+            </th>
+            <th>
+                {% if data.name is not None %}
+                {{ data.name }}
+                {% endif %}
+            </th>
+
+            <th>{{ data.enter | date:"H時i分"}}</th>
+            <th>
+                <a href="{% url 'time_logging:exit_execute' pk=data.id %}">
+                    <button class="b-exit">退出する</button>
+                </a>
+            </th>
+        </tr>
+        {% endfor %}
+    </div>
+</table>
+
+
+<div style="height: 32px;"></div>
+<div class="text-start">
+    <p><a href="{% url 'time_logging:index' %}">←HOMEに戻る</a></p>
+</div>
+<div style="height: 32px;"></div>
+{% endblock %}
