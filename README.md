@@ -1,6 +1,7 @@
 # Django-Library-Time-Logging-Webapp（図書室時間記録webアプリ）
 
 ## システム構成
+![システム構成](README/sys.png)
 
 ## ファイル構成
 ```
@@ -77,7 +78,6 @@ library_time_log/
 │   ├── urls.py
 │   └── views.py
 ├── .gitignore
-├── db.sqlite3
 ├── manage.py
 └── README.md
 ```
